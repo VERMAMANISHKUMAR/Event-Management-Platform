@@ -12,17 +12,17 @@ const Navbar = () => {
     if (token) {
       setIsLoggedIn(true); // Set login state to true if token exists
     }
-  }, []);
+  }, [isLoggedIn]);
 
   // Listen for login changes (updates instantly)
-  useEffect(() => {
-    const handleStorageChange = () => {
-      setIsLoggedIn(!!localStorage.getItem("authToken"));
+      useEffect(() => {
+     const handleStorageChange = () => {
+      setIsLoggedIn(!localStorage.getItem("authToken"));
     };
 
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
-  }, []);
+  }, [isLoggedIn]);
 
   // Handle Logout 
   const handleLogout = () => {
