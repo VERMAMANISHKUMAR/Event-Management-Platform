@@ -22,16 +22,7 @@ app.use('/api', eventRoutes);
 
 app.use('/api/auth', userController);
 
-// Basic route
-app.get('/', (req, res) => {
-    res.send('Welcome to the Authentication Backend Server!');
-});
-app.get('/home', (req, res) => {
-    res.send('Welcome to Home!');
-});
-app.get('/about', (req, res) => {
-    res.send('Welcome to Abouts!');
-});
+
 
 // Start the server
 app.listen(PORT, () => {
