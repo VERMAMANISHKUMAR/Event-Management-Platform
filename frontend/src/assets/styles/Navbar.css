@@ -1,0 +1,82 @@
+/* Navbar Styling */
+.navbar {
+          background-color: #f8f9fa !important; /* Light background color for the navbar */
+          padding: 1rem 2rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar h2 {
+          font-size: 1.8rem;
+          color: #333;
+          font-weight: bold;
+          margin: 0;
+        }
+        
+        .navbar-toggler-icon {
+          background-color: #333; /* Dark color for the hamburger icon */
+        }
+        
+        /* Navbar Search Styling */
+        .form-control {
+          width: 250px;
+          margin-right: 10px;
+          border-radius: 20px;
+        }
+        
+        .btn-outline-success {
+          border-radius: 20px;
+        }
+        
+        /* Navbar Button Styling */
+        .btn {
+          border-radius: 20px; /* Make buttons round */
+        }
+        
+        .btn-primary {
+          background-color: #007bff;
+          color: white;
+        }
+        
+        .btn-secondary {
+          background-color: #6c757d;
+          color: white;
+        }
+        
+        .btn-danger {
+          background-color: #dc3545;
+          color: white;
+        }
+        
+        .btn-success {
+          background-color: #28a745;
+          color: white;
+        }
+        
+        .btn:hover {
+          opacity: 0.9;
+        }
+        
+        /* Extra Profile Info Section */
+        .mt-2 {
+          padding: 1rem;
+          background-color: #f1f1f1;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+          .navbar h2 {
+            font-size: 1.5rem; /* Smaller font size on mobile */
+          }
+        
+          .form-control {
+            width: 150px; /* Make search bar smaller on mobile */
+          }
+        
+          .navbar-collapse {
+            text-align: center;
+          }
+        }
+     /* -------------------------------------- */
+ 

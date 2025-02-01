@@ -1,0 +1,18 @@
+/* App.css */
+form {
+  max-width: 300px;
+  margin: 0 auto;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+}
+/* Event Image Preview */
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
