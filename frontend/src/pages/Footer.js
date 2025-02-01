@@ -13,9 +13,9 @@ const Footer = () => {
           <p>Follow us on</p>
           <ul className="social-icons">
             <li><a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a></li>
-            <li><a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
+            <li><a href="https://x.com/home" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><FaTwitter /></a></li>
             <li><a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><FaInstagram /></a></li>
-            <li><a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a></li>
+            <li><a href="https://www.linkedin.com/in/manishverma25/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a></li>
           </ul>
         </div>
 
@@ -32,32 +32,32 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="/">Upcoming Events</a></li>
-            <li><a href="/services">Event Planning</a></li>
-            <li><a href="/about">Ticketing</a></li>
-            <li><a href="/contact">Event Locations</a></li>
-            <li><a href="/contact">Speakers & Guests</a></li>
+            <li><a href="#">Upcoming Events</a></li>
+            <li><a href="#">Event Planning</a></li>
+            <li><a href="#">Ticketing</a></li>
+            <li><a href="#">Event Locations</a></li>
+            <li><a href="#">Speakers & Guests</a></li>
           </ul>
         </div>
 
         <div className="footer-column">
           <h3>Support</h3>
           <ul>
-            <li><a href="/">Contact Us</a></li>
-            <li><a href="/services">Privacy Policy</a></li>
-            <li><a href="/about">Terms of Service</a></li>
-            <li><a href="/contact">FAQ</a></li>
-            <li><a href="/contact">Sponsorship Opportunities</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Sponsorship Opportunities</a></li>
           </ul>
         </div>
 
         <div className="footer-column">
           <h3>Countries</h3>
           <ul>
-            <li><a href="/">United States</a></li>
-            <li><a href="/services">United Kingdom</a></li>
-            <li><a href="/about">Canada</a></li>
-            <li><a href="/contact">Australia</a></li>
+            <li><a href="#">United States</a></li>
+            <li><a href="#">United Kingdom</a></li>
+            <li><a href="#">Canada</a></li>
+            <li><a href="#">Australia</a></li>
           </ul>
         </div>
       </div>
