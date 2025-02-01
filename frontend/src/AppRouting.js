@@ -10,12 +10,12 @@ import ProtectedRoute from './Auth/ProtectedRoute';
 import Footer from './pages/Footer'
 import UpcomingEvent from './pages/UpcomingEvents'
 import AllEvents from './pages/AllEvents';
-// import EventPage from './pages/eventpage';
+
 function AppRouting() {
   return (
     <Router>
       <NavigationBar />
-      {/* <EventPage/> */}
+     
       <div>
         <Routes>
           <Route

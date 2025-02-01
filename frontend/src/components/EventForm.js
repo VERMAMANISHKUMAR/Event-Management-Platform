@@ -50,7 +50,7 @@ const EventForm = () => {
     formData.append("eventTime", formattedTime);
 
     try {
-      const response = await fetch("http://localhost:3800/api/events", {
+      const response = await fetch("https://event-management-platform-1-6x8a.onrender.com/api/events", {
         method: "POST",
         headers: {
           "Accept": "application/json",
