@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3800;
 
 // ✅ CORS Configuration
 const allowedOrigins = [
-    'https://event-management-platform-frontend-bh5b.onrender.com' || 'http://localhost:3000',  // Frontend URL
+    'https://event-management-platform-frontend-bh5b.onrender.com/' || 'http://localhost:3000',  // Frontend URL
 ];
 
 app.use(cors({
