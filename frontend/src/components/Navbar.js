@@ -8,27 +8,27 @@ const Navbar = () => {
 
   // Check login status when component loads
   useEffect(() => {
-    const token = localStorage.getItem("authToken"); // Retrieve token from localStorage
+    const token = localStorage.getItem("authToken"); 
     if (token) {
       setIsLoggedIn(true); // Set login state to true if token exists
     }
-  }, [isLoggedIn]);
+  }, []);
 
   // Listen for login changes (updates instantly)
       useEffect(() => {
      const handleStorageChange = () => {
-      setIsLoggedIn(!localStorage.getItem("authToken"));
+      setIsLoggedIn(!!localStorage.getItem("authToken"));
     };
 
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
-  }, [isLoggedIn]);
+  }, []);
 
   // Handle Logout 
   const handleLogout = () => {
     localStorage.removeItem("authToken"); // Remove token
-    setIsLoggedIn(false); // Update state
-    navigate("/signin"); // Redirect to Sign In page
+    setIsLoggedIn(false); 
+    navigate("/signin"); 
   };
 
   return (

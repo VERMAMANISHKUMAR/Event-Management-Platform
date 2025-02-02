@@ -15,7 +15,7 @@ const SignupForm = () => {
 
     try {
       // Make the POST request to the signup API
-      const response = await axios.post('https://event-management-platform-1-6x8a.onrender.com/api/auth/signup', { email, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, { email, password });
 
       if (response.status === 201) {
         toast.success('User created successfully');
