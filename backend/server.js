@@ -10,7 +10,7 @@ const eventRoutes = require('./Event Routes/eventRoutes');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3800;
+const PORT = process.env.PORT || https://event-management-platform-frontends.onrender.com;
 
 // Middleware
 app.use(cors()); // Enable CORS for all routes
