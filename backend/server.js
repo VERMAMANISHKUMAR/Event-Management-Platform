@@ -10,25 +10,39 @@ const eventRoutes = require('./Event Routes/eventRoutes');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3800;
+
+// ✅ CORS Configuration
+const allowedOrigins = [
+    'https://event-management-platform-frontend-bh5b.onrender.com' || 'http://localhost:3000',  // Frontend URL
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.error('Blocked by CORS:', origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,  // Allows cookies and authorization headers
+}));
 
 // Middleware
-app.use(cors({
-    origin: process.env.FRONTEND_URL,
-    credentials: true,
-  }));
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// ✅ Routes
 app.use('/api', eventRoutes);
-
 app.use('/api/auth', userController);
 
-
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-    connectMongoDB();
+// ✅ Connect to MongoDB & Start Server
+connectMongoDB().then(() => {
+    app.listen(PORT, () => {
+        console.log(`✅ Server running on http://localhost:${PORT}`);
+        console.log(`✅ Allowed Origins: ${allowedOrigins.join(', ')}`);
+    });
+}).catch((error) => {
+    console.error('❌ MongoDB connection failed:', error);
 });
