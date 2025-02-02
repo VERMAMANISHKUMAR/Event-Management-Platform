@@ -14,8 +14,8 @@ const PORT = process.env.PORT || 3800;
 
 // ✅ CORS Configuration
 const allowedOrigins = [
-    'https://event-management-platform-frontend-bh5b.onrender.com'
-   
+    'https://event-management-platform-frontend-bh5b.onrender.com',
+    'http://localhost:3000' // Allow localhost for development
 ];
 
 app.use(cors({
@@ -23,12 +23,15 @@ app.use(cors({
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            console.error('Blocked by CORS:', origin);
+            console.error('❌ Blocked by CORS:', origin);
             callback(new Error('Not allowed by CORS'));
         }
     },
-    credentials: true,  // Allows cookies and authorization headers
+    credentials: true, // Allow cookies and authorization headers
 }));
+
+// Allow preflight requests
+tapp.options('*', cors());
 
 // Middleware
 app.use(bodyParser.json());
