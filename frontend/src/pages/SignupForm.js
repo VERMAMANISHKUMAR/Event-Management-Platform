@@ -15,8 +15,8 @@ const SignupForm = () => {
 
     try {
       // Make the POST request to the signup API
-      const response = await axios.post('http://localhost:3800/api/auth/signup', { email, password });
-
+      const response = await axios.post(`${process.env.Frontend_API}/api/auth/signup`, { email, password });
+      //'http://localhost:3800/api/auth/signup'
       if (response.status === 201) {
         toast.success('User created successfully');
         setEmail('');
