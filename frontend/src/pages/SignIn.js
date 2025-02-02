@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_BASE_URL = process.env.Frontend_API || 'http://localhost:3800';
+
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,22 +23,20 @@ const SignIn = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`https://event-management-platform-backend-fldx.onrender.com/api/auth/login`, {
-        //'http://localhost:3800/api/auth/login'
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email,
         password,
       });
 
       const token = response.data.token;
-      console.log('Token:', token);
       localStorage.setItem('authToken', token);
 
       toast.success('Login successful!');
       navigate('/home');
-    
     } catch (error) {
-      console.error('Error:', error.response?.data?.message || error.message);
-      toast.error(error.response?.data?.message || 'An error occurred during login');
+      const errorMessage = error.response?.data?.message || 'An error occurred during login';
+      console.error('Error:', errorMessage);
+      toast.error(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -56,6 +56,7 @@ const SignIn = () => {
             onChange={(e) => setEmail(e.target.value)}
             style={styles.input}
             aria-label="Email"
+            autoComplete="email"
           />
         </div>
         <div style={styles.inputGroup}>
@@ -68,13 +69,14 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
             aria-label="Password"
+            autoComplete="current-password"
           />
         </div>
-        <button type="submit" style={styles.button} disabled={isLoading}>
+        <button type="submit" style={styles.button} disabled={isLoading || !email || !password}>
           {isLoading ? 'Loading...' : 'Submit'}
         </button>
       </form>
-      <ToastContainer />
+      <ToastContainer position="top-center" autoClose={3000} aria-live="polite" />
     </div>
   );
 };
@@ -118,6 +120,7 @@ const styles = {
     borderRadius: '4px',
     cursor: 'pointer',
     fontSize: '16px',
+    transition: 'background-color 0.3s',
   },
 };
 
