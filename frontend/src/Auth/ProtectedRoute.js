@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
      
      
 
-        const response = await axios.get(`${process.env.Frontend_API}/api/auth/verify`, {
+        const response = await axios.get(`https://event-management-platform-backend-fldx.onrender.com/api/auth/verify`, {
           //'http://localhost:3800/api/auth/verify',
           headers: {
             Authorization: `Bearer ${token}`,

@@ -21,7 +21,7 @@ const SignIn = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${process.env.Frontend_API}/api/auth/login`, {
+      const response = await axios.post(`https://event-management-platform-backend-fldx.onrender.com/api/auth/login`, {
         //'http://localhost:3800/api/auth/login'
         email,
         password,
