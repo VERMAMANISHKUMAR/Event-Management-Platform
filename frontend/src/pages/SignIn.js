@@ -23,20 +23,23 @@ const SignIn = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password });
 
-      const token = response.data.token;
-      localStorage.setItem('authToken', token);
+      console.log('✅ Response:', response.data); // Debugging
+      localStorage.setItem('authToken', response.data.token);
 
       toast.success('Login successful!');
       navigate('/home');
     } catch (error) {
-      const errorMessage = error.response?.data?.message || 'An error occurred during login';
-      console.error('Error:', errorMessage);
-      toast.error(errorMessage);
+      console.error('❌ Error:', error.response || error);
+
+      if (!error.response) {
+        toast.error('Server is unreachable. Please try again later.');
+      } else if (error.response.status === 500) {
+        toast.error('Internal Server Error. Please contact support.');
+      } else {
+        toast.error(error.response.data?.message || 'An error occurred during login');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -55,7 +58,6 @@ const SignIn = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={styles.input}
-            aria-label="Email"
             autoComplete="email"
           />
         </div>
@@ -68,7 +70,6 @@ const SignIn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
-            aria-label="Password"
             autoComplete="current-password"
           />
         </div>
@@ -76,7 +77,7 @@ const SignIn = () => {
           {isLoading ? 'Loading...' : 'Submit'}
         </button>
       </form>
-      <ToastContainer position="top-center" autoClose={3000} aria-live="polite" />
+      <ToastContainer position="top-center" autoClose={3000} />
     </div>
   );
 };
@@ -92,18 +93,9 @@ const styles = {
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
     textAlign: 'center',
   },
-  title: {
-    fontSize: '24px',
-    marginBottom: '20px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  inputGroup: {
-    marginBottom: '15px',
-    textAlign: 'left',
-  },
+  title: { fontSize: '24px', marginBottom: '20px' },
+  form: { display: 'flex', flexDirection: 'column' },
+  inputGroup: { marginBottom: '15px', textAlign: 'left' },
   input: {
     width: '100%',
     padding: '8px',
