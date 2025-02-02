@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';  // Toastify CSS
 import 'bootstrap/dist/css/bootstrap.min.css';  // Bootstrap CSS
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3800';
+const API_BASE_URL = process.env.Frontend_API || 'http://localhost:3800';
 
 const SignupForm = () => {
   const [email, setEmail] = useState('');
