@@ -14,6 +14,8 @@ const PORT = process.env.PORT || https://event-management-platform-frontends.onr
 
 // Middleware
 app.use(cors()); // Enable CORS for all routes
+app.use(cors({ origin: "https://event-management-platform-frontends.onrender.com" }));
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
